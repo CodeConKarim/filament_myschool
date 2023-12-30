@@ -169,6 +169,9 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\Filament\AdminPanelProvider::class,
+        App\Providers\Filament\SchoolPanelProvider::class,
+        App\Providers\Filament\TeacherPanelProvider::class,
         App\Providers\RouteServiceProvider::class,
     ])->toArray(),
 

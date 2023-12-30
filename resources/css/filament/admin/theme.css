@@ -1,0 +1,13 @@
+@import '/vendor/filament/filament/resources/css/theme.css';
+
+@config 'tailwind.config.js';
+
+.fi-main-ctn{
+    @apply bg-primary-50 dark:bg-transparent;
+}
+.fi-sidebar{
+    @apply bg-primary-100 dark:bg-transparent !important;
+}
+.fi-header-heading{
+    @apply text-primary-600 dark:text-primary-600 !important;
+}
