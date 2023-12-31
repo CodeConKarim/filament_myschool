@@ -1,17 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
-namespace {{ factoryNamespace }};
+namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class {{ factory }}Factory extends Factory
+final class RoleFactory extends Factory
 {
-    protected $model = {{ namespacedModel }};
+    protected $model = App\Models\Role;
     public function definition(): array
     {
         return [
-            //
+
         ];
     }
 }

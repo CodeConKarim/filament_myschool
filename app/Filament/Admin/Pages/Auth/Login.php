@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Filament\Admin\Pages\Auth;
+declare(strict_types=1);
 
+namespace App\Filament\Admin\Pages\Auth;
 
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\TextInput;
@@ -9,16 +10,16 @@ use Filament\Forms\Form;
 use Filament\Pages\Auth\Login as BaseLogin;
 use Illuminate\Validation\ValidationException;
 
-class Login extends BaseLogin
+final class Login extends BaseLogin
 {
     public function form(Form $form): Form
     {
         return $form
-                ->schema([
-                    $this->getLoginFormComponent(),
-                    $this->getPasswordFormComponent(),
-                    $this->getRememberFormComponent()
-                ]);
+            ->schema([
+                $this->getLoginFormComponent(),
+                $this->getPasswordFormComponent(),
+                $this->getRememberFormComponent()
+            ]);
     }
 
     protected function getLoginFormComponent(): Component

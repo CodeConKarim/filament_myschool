@@ -57,7 +57,7 @@ final class Profile extends BaseEditProfile
     }
     protected function getImageFormComponent(): Component
     {
-        return SpatieMediaLibraryFileUpload::make('image_admin')
+        return SpatieMediaLibraryFileUpload::make('image_user')
             ->label('')
             ->image()
             ->alignCenter()
