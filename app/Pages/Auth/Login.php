@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Teacher\Pages\Auth;
+namespace App\Pages\Auth;
 
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use Filament\Facades\Filament;

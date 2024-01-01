@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Admin\Resources;
 
+use App\Enums\EnumTitles;
 use App\Filament\Admin\Resources\UserResource\Pages;
 use App\Models\User;
 use Filament\Forms;
@@ -34,10 +35,11 @@ final class UserResource extends Resource
                     ->schema([
                         Section::make(' ')
                             ->schema([
-                                Forms\Components\TextInput::make('title')
+                                Forms\Components\Select::make('title')
                                     ->required()
-                                    ->maxLength(255)
-                                    ->default('Mr.'),
+                                    ->options(EnumTitles::class)
+                                    ->native(false)
+                                    ->enum(EnumTitles::class),
                                 Forms\Components\TextInput::make('first_name')
                                     ->required()
                                     ->maxLength(255),
@@ -47,7 +49,6 @@ final class UserResource extends Resource
                         Section::make(' ')
                             ->schema([
                                 Forms\Components\TextInput::make('phone')
-                                    ->tel()
                                     ->required()
                                     ->maxLength(255),
                                 Forms\Components\TextInput::make('email')

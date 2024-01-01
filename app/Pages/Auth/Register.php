@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\School\Pages\Auth;
+namespace App\Pages\Auth;
 
 use App\Enums\EnumTitles;
 use App\Models\Role;
