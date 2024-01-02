@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Observers;
 
 use App\Models\Admin;
@@ -7,7 +9,7 @@ use App\Models\User;
 use Filament\Notifications\Actions\Action;
 use Filament\Notifications\Notification;
 
-class UserObserver
+final class UserObserver
 {
     /**
      * Handle the User "created" event.
@@ -23,7 +25,7 @@ class UserObserver
         //send notification to the user
         Notification::make()
             ->warning()
-            ->title('Welcome '. $user->name. ' to the system')
+            ->title('Welcome '.$user->name.' to the system')
             ->body('Please update your profile')
             ->actions([
                 Action::make('Update your profile')
@@ -38,7 +40,7 @@ class UserObserver
      */
     public function updated(User $user): void
     {
-        //
+
     }
 
     /**
@@ -46,7 +48,7 @@ class UserObserver
      */
     public function deleted(User $user): void
     {
-        //
+
     }
 
     /**
@@ -54,7 +56,7 @@ class UserObserver
      */
     public function restored(User $user): void
     {
-        //
+
     }
 
     /**
@@ -62,6 +64,6 @@ class UserObserver
      */
     public function forceDeleted(User $user): void
     {
-        //
+
     }
 }

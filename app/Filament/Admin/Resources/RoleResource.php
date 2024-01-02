@@ -16,7 +16,16 @@ final class RoleResource extends Resource
 {
     protected static ?string $model = Role::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $slug = 'roles-management';
+    protected static ?string $navigationIcon = 'heroicon-o-key';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-key';
+    protected static ?string $navigationLabel = 'Roles';
+    protected static ?int $navigationSort = 1;
+    protected static ?string $navigationGroup = 'Security';
+    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?string $modelLabel = 'Role';
+    protected static ?string $pluralModelLabel = 'Roles management';
+
 
     public static function form(Form $form): Form
     {

@@ -1,12 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Filament\Admin\Resources;
 
 use App\Enums\EnumTitles;
-use App\Filament\Admin\Resources\UserResource\Pages;
-use App\Models\User;
+use App\Filament\Admin\Resources\AdminResource\Pages;
+use App\Models\Admin;
 use Filament\Forms;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
@@ -21,23 +19,25 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
-final class UserResource extends Resource
+class AdminResource extends Resource
 {
-    protected static ?string $model = User::class;
-    protected static ?string $slug = 'users-management';
-    protected static ?string $navigationIcon = 'heroicon-o-users';
-    protected static ?string $activeNavigationIcon = 'heroicon-s-users';
-    protected static ?string $navigationLabel = 'Users Account';
+    protected static ?string $model = Admin::class;
+
+    protected static ?string $slug = 'admins-management';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $activeNavigationIcon = 'heroicon-s-user-group';
+    protected static ?string $navigationLabel = 'Admins Account';
     protected static ?int $navigationSort = 1;
     protected static ?string $navigationGroup = 'Accounts Management';
     protected static ?string $recordTitleAttribute = 'name';
-    protected static ?string $modelLabel = 'User';
-    protected static ?string $pluralModelLabel = 'Users Management';
+    protected static ?string $modelLabel = 'Admin';
+    protected static ?string $pluralModelLabel = 'Admins Management';
 
     public static function getNavigationBadge(): ?string
     {
-        return strval(UserResource::getModel()::count());
+        return strval(AdminResource::getModel()::count());
     }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -90,7 +90,7 @@ final class UserResource extends Resource
                     ->schema([
                         Section::make(' ')
                             ->schema([
-                                Forms\Components\SpatieMediaLibraryFileUpload::make('image_user')
+                                Forms\Components\SpatieMediaLibraryFileUpload::make('image_admin')
                                     ->label('')
                                     ->image()
                                     ->alignCenter()
@@ -101,14 +101,9 @@ final class UserResource extends Resource
                             ->schema([
                                 Forms\Components\Toggle::make('is_active')
                                     ->required(),
-                                Forms\Components\Toggle::make('is_owner')
+                                Forms\Components\Toggle::make('is_super_admin')
                                     ->required(),
                             ]),
-                        Section::make('Roles')
-                            ->schema([
-                                Forms\Components\CheckboxList::make('roles')
-                                    ->relationship(titleAttribute: 'name')
-                            ])
                     ])
             ])->columns(["lg" => 3]);
     }
@@ -117,7 +112,7 @@ final class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\SpatieMediaLibraryImageColumn::make('image_user')
+                Tables\Columns\SpatieMediaLibraryImageColumn::make('image_admin')
                     ->label('')
                     ->defaultImageUrl(asset('images/defaultImageProfile2.webp'))
                     ->circular(),
@@ -132,15 +127,9 @@ final class UserResource extends Resource
                 Tables\Columns\IconColumn::make('is_active')
                     ->label('Active')
                     ->boolean(),
-                Tables\Columns\IconColumn::make('is_owner')
-                    ->label('Owner')
+                Tables\Columns\IconColumn::make('is_super_admin')
+                    ->label('Super Admin')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('roles.name')
-                    ->label('Role')
-                    ->badge()
-                    ->separator(',')
-                    ->sortable()
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
@@ -176,16 +165,16 @@ final class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-
+            //
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            'index' => Pages\ListAdmins::route('/'),
+            'create' => Pages\CreateAdmin::route('/create'),
+            'edit' => Pages\EditAdmin::route('/{record}/edit'),
         ];
     }
 

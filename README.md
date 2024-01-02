@@ -1,66 +1,90 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Hello,
+today we are going to build a school management App with Laravel and FilamentPHP v3 "MySchool.com"
+using :
+- Laravel
+- FilamentPHP V3
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+Part 01: Laravel Installation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+	- [x] Laravel Installation
+		-> [x] Laravel configuration
+		-> [x] Install some helpers [juststeveking/launchpad, Pint, nunomaduro/larastan]
+		-> [x] Update users table and User Model
+		-> [x] Update User factory an UserSeeder
+		-> [x] Create admins table and Admin Model
+		-> [x] Create Admin factory an AdminSeeder
+		-> [x] Configure the admin and User authGuard
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Part 02: Filament Installation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+	- [x] FilamentPHP v3 Installation
+		-> [x] Installation
+		-> [x] Add some plugins
+	- [x] Costumize filament
+		-> [x] police font
+		-> [x] Logo
+		-> [x] favicon
+		-> [x] Colors
+		-> [x] DarkMode
+		-> [x] Filament Theme
+	-[x] Filament Panel
+		-> [x] Create a school and Teacher Panel
+		-> [x] Costumize panels
+		-> [x] Multiple AuthGuard
 
-## Learning Laravel
+Part 03: Filament Auth System
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+	-[x] Filament Auth Systhem
+		-> [x] Extend Profile for each panel let move it to our index panel
+		-> [x] Add image profile to admin and users
+		-> [x] Extend Login for each panel to log with phone or email()
+		-> [x] Extend Register for school panel let's do a sam thing
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Part 04: Update the Auth System
+        
+     ->[x] Update the Auth System
+        -> [x] Create Role model -mfs
+        -> [x] Create a RoleSeeder
+        -> [x] Create a RoleResource make panel id desabled i want to generate the role from the system
+        -> lets creat an action to generate our role from the system
+        -> [x] Create a UserResource
+        -> [x] Update The login Teacher and School: i wan to check if the user has This panel before sign
+        -> [x] Update The Register School: let's do a same thing`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Part 05: Notifications
 
-## Laravel Sponsors
+    - [x] Add Filament notification to our application
+    - [x] Create an Observer for user model
+    - [x] Create notification for user->school
+    - [x] Create notification for admin when the school->user register
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Part 06: Update Resources
 
-### Premium Partners
+    - [x] UserResource navigation
+    - [x] Add Tabs
+    - [x] Create the Admin Resource and customize it
+    - [x] Add image to table ->UserResource and Admin Resource
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Part 07: School Resource
 
-## Contributing
+    - [] Create a School model
+    - [] UserResource navigation customize it
+    - [] Create middleware that redirects the user to the school creation page if it has not yet been created
+    - [] Add classes to school
+    - [] Create education_level, and grades tables
+    - [] Create a SchoolResource for the school panel and the admin panel
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Part 08: Create a JobResource
 
-## Code of Conduct
+    - [] Create a jobs table
+    - [] Create a JobResource ->admin panel
+    - [] update the UserResource Admin panel
+        system of assigning users to schools
+    - [] create the UserResource school panel
+        system of assigning users to schools
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Part 09:
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Thanks to watching this video to see you tomorrow

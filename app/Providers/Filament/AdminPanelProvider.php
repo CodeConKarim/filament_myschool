@@ -66,6 +66,11 @@ final class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->databaseNotifications()
-            ->databaseNotificationsPolling('30s');
+            ->databaseNotificationsPolling('30s')
+            ->navigationGroups([
+                'Accounts Management',
+                'Security'
+            ])
+            ;
     }
 }
